@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+ {% for blog in blogs %}
+    <a href="{% url 'detail' blog.id %}"<h3>{{blog.title}}</h3></a>
+    <br>
+    <img src="{{blog.img.url}}" width="300" height="300">
+    <br>
+    <p>
+        {{blog.description}}
+        <br>
+        <a href="{% url 'update' blog.id %}">Update</a>
+        <a href="{% url 'delete' blog.id %}">Delete</a>
+    </p>
+
+    <hr>
+    <hr>
+
+ {% endfor %}
+{% endblock %}
